@@ -449,7 +449,7 @@ function session(options) {
     }
 
     // generate a session if the browser doesn't send a sessionID
-    if (!req.sessionID) {
+    if (!req.sessionID && !req.shouldIgnoreSetCookie) {
       debug('no SID sent, generating session');
       generate();
       next();
