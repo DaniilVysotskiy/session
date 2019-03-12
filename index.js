@@ -439,7 +439,7 @@ function session(options) {
     // determine if cookie should be set on response
     function shouldSetCookie(req) {
       // cannot set cookie without a session ID
-      if (typeof req.sessionID !== 'string') {
+      if (typeof req.sessionID !== 'string' || req.shouldIgnoreSetCookie) {
         return false;
       }
 
